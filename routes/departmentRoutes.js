@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const departmentController = require('../controller/departmentController');
+const sequelize = require("../utils/Database");
+router.get('/department',departmentController.alldepartments);
+router.post('/add_department',departmentController.postDepartment);
+// router.get('/specific_student/:id',studentController.getDetails);
+// router.post('/update_student/:id',studentController.updateStudent);
+// router.delete('/delete_student/:id',studentController.DeleteStudent);
+// router.patch('/patch_student/:id',studentController.patchStudent);
+module.exports = router;
