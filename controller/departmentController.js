@@ -20,20 +20,22 @@ exports.alldepartments=(req,res)=>{
 }
 
 exports.postDepartment=(req,res)=>{
-    const {faculty,department_name}=req.body
-    if(!department_name|| department_name.length===0){
-        res.status(400).json({
-            message:"deparment field empty "
+    const {department_name,facultyId}=req.body
+    const requiredField=['department_name','facultyId']
+    const missingField=requiredField.filter(fields=>!req.body[fields])
+    if(missingField>0){
+        return res.status(400).json({
+            message:`missing field ${missingField.join(', ')}`
         })
     }
     Department.create({
-        faculty,
-        department_name
-    }).then((department) => {
+        department_name,
+        facultyId
+    }).then((result) => {
       res.status(201) .json({
         message:"department created",
-        department
-      })
+        result
+        })
         
     }).catch((err) => {
         res.status(500).json({

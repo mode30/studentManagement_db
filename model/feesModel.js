@@ -9,7 +9,7 @@ const Fees=sequelize.define("Fees",{
     },
     amount:{
         type:Sequelize.DOUBLE,
-        allowNull:false,
+        allowNull:true,
 
     }
 },{

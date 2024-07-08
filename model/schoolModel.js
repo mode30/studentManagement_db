@@ -15,15 +15,15 @@ const School=sequelize.define("School",{
         type:Sequelize.STRING,
         allowNull:false,
     },
-    department:{
-        type:Sequelize.INTEGER,
-        allowNull:true,
-        default:"#",
-        references:{
-            model:"Departments",
-            key:'id'
-        }
-    }
+    // department:{
+    //     type:Sequelize.INTEGER,
+    //     allowNull:true,
+    //     default:"#",
+    //     references:{
+    //         model:"Departments",
+    //         key:'id'
+    //     }
+    // }
 
 },{
     tableName:"Schools"

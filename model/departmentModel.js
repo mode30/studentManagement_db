@@ -7,17 +7,14 @@ const Department=sequelize.define("Department",{
     allowNull:false,
     primaryKey:true,
  },
- faculty:{
-    type:Sequelize.INTEGER,
-    reference:{
-        model:"Faculty",
-        key:"id",
-    }
- },
+
  department_name:{
     type:Sequelize.STRING,
-    allowNull:false
- } ,
+    reference:{
+      model:"Schools",
+      key:'id'
+    }
+ }
 
 },{
    tableName:"Departments"

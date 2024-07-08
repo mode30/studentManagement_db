@@ -15,17 +15,11 @@ const Student=sequelize.define("Student",{
     type:Sequelize.STRING,
     allowNull:false,
   },
-  department:{
-    type:Sequelize.INTEGER,
-    references:{
-        model:"Departments",
-        key:"id"
-    }
-  },
+
   email:{
     type:Sequelize.STRING,
     allowNull:false,
-    unique:true
+    
   },
   Dob:{
     type:Sequelize.DATE,

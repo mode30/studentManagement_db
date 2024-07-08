@@ -19,14 +19,21 @@ exports.allFees=(req,res)=>{
     });
 }
 exports.postFees=(req,res)=>{
-    const {amount}=req.body
-    if(amount===0){
+    const {amount,studentId,departmentId}=req.body
+    if(!amount||!studentId||!departmentId){
+    const requiredField=['amount','studentId','departmentId'];
+    const missingField=requiredField.filter(field=>!req.body[field])
+    if(missingField.length>0){
         res.status(404).json({
-            message:"fees amount entry empty",
+            message:`missing field for ${missingField.join(', ')}`,
         })
     }
+    }
+  
     Fees.create({
-        amount
+        amount,
+        studentId,
+        departmentId
     }).then((fees) => {
         res.status(201).json({
             message:"fees added",

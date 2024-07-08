@@ -1,8 +1,7 @@
-exports.error=(err,req,res)=>{
-    console.log(err)
+exports.error=(err,req,res,next)=>{
     res.status(500).json({
-        message:"Server Error",
-        err
+        status:"Server Error",
+       message: err.message
     })
 
 }
